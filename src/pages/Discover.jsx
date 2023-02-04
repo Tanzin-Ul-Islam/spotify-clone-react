@@ -5,15 +5,18 @@ import { genres } from '../assets/constants'
 import { useGetTopChartsQuery } from '../redux/services/shazamCore'
 export default function Discover() {
     const dispatch = useDispatch();
-    const { activeSong, isPlaying  } = useSelector((state) => state.player)
+    const { activeSong, isPlaying, test } = useSelector((state) => state.player)
     const { data, isFetching, error } = useGetTopChartsQuery();
     let genreTitle = 'Pop'
     if (isFetching) return <Loader title="Loading songs...." />
     console.log(data);
+    console.log('isPlaying',isPlaying);
+    
     return (
         <div className="flex flex-col">
             <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
                 <h2 className="font-bold text-3xl text-white text-left">Discover</h2>
+
                 <select
                     onChange={() => { }}
                     value=""
